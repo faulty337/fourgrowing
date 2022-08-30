@@ -1,0 +1,24 @@
+<script th:inline="javascript">
+    $(function(){
+        // Ajax call for category
+        $.ajax({
+            method : 'GET',
+            url: '/product',
+            dataType: 'json'
+        }).done(function(result){
+            // Category tables
+            // alert(JSON.stringify(result));
+            $('#product_table').DataTable({
+                data : result,
+                columns: [
+                    { data: 'id'},
+                    { data: 'userName' },
+                    { data: 'plantType' },
+                    { data: 'plantCode' }
+                ]
+            });
+        }).fail(function(xhr, ajaxOptions, thrownError){
+            alert('!');
+        });
+    });
+</script>
