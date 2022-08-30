@@ -22,6 +22,10 @@ public class UserController {
     public String signup(UserCreateDto userCreateDto) {
         return "signup_form";
     }
+    @GetMapping("/login")
+    public String login() {
+        return "login_form";
+    }
 
     @PostMapping("/signup")
     public String signup(@Valid UserCreateDto userCreateDto, BindingResult bindingResult) {
