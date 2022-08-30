@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.dao.DataIntegrityViolationException;
+
 
 import javax.validation.Valid;
 
@@ -33,7 +35,17 @@ public class UserController {
             return "signup_form";
         }
 
-        userService.create(userCreateDto);
+        try {
+            userService.create(userCreateDto);
+        } catch(DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
+            return "signup_form";
+        } catch(Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage());
+            return "signup_form";
+        }
 
         return "signup_form";
     }

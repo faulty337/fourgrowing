@@ -28,8 +28,11 @@
       <input type="tel" th:field="*{phoneNumber}" class="form-control">
     </div>
     <div class="mb-3">
-      <label for="gender" class="form-label">성별</label>
-      <input type="text" th:field="*{gender}" class="form-control">
+      <label for="gender" class="form-label">성별</label><br>
+      <input type="radio" id="male" th:field="*{gender}" value="남자">
+      <label for="male">남자</label><br>
+      <input type="radio" id="female" th:field="*{gender}" value="여자">
+      <label for="female">여자</label><br>
     </div>
     <div class="mb-3">
       <label for="age" class="form-label">나이</label>

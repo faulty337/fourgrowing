@@ -20,7 +20,6 @@ public class UserData {
 
     private String password;
 
-    @Column(unique = true)
     private String email;
 
     private LocalDateTime createTime;
@@ -29,7 +28,6 @@ public class UserData {
     
     private String gender;
 
-    @Column(unique = true)
     private String phoneNumber;
 
     private int age;

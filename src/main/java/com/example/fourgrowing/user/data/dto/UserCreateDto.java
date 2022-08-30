@@ -33,5 +33,9 @@ public class UserCreateDto {
 
     @NotNull(message = "나이는 필수항목입니다.")
     private int age;
+
+
+
+
 }
 
