@@ -1,6 +1,7 @@
 package com.example.fourgrowing.user;
 
 
+import com.example.fourgrowing.user.data.dto.UserCreateAdminDto;
 import com.example.fourgrowing.user.data.dto.UserCreateDto;
 import com.example.fourgrowing.user.data.dto.UsersDto;
 import com.example.fourgrowing.user.data.entity.UserData;
@@ -22,9 +23,7 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
-    @Autowired
-	private ModelMapper modelMapper;
+	private ModelMapper modelMapper = new ModelMapper();
 
     public UserData create(UserCreateDto userCreateDto) {
         UserData user = new UserData();
@@ -45,16 +44,26 @@ public class UserService {
 	}
 	
 	@Transactional
-	public UsersDto newUsers(UsersDto usersDto) {
+	public UserCreateAdminDto newUsers(UserCreateAdminDto userCreateAdminDto) {
 		// 사용자 저장
 		// 암호화
-		usersDto.setPassword(new BCryptPasswordEncoder().encode(usersDto.getPassword()));
-		UsersDto resultDto = modelMapper.map(userRepository.save(usersDto.toEntity()), UsersDto.class);
+		userCreateAdminDto.setPassword(new BCryptPasswordEncoder().encode(userCreateAdminDto.getPassword()));
+
+		UserData user = new UserData();
+        user.setUsername(userCreateAdminDto.getUsername());
+        user.setPassword(passwordEncoder.encode((userCreateAdminDto.getPassword())));
+        user.setAge(0);
+        user.setCreateTime(LocalDateTime.now());
+        user.setLastLogin(LocalDateTime.now());
+        user.setEmail(userCreateAdminDto.getEmail());
+        user.setGender("madeAdmin");
+        user.setPhoneNumber("madeAdmin");
+        userRepository.save(user);
 		// 권한 저장
 		// authoritiesRepository.save(Authorities.builder()
 		// 									.username(usersDto.getUsername())
 		// 									.authority("ROLE_ADMIN")
 		// 									.build());
-		return resultDto;
+		return userCreateAdminDto;
 	}
 }

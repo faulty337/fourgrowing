@@ -1,5 +1,6 @@
 package com.example.fourgrowing.user;
 
+import com.example.fourgrowing.user.data.dto.UserCreateAdminDto;
 import com.example.fourgrowing.user.data.dto.UserCreateDto;
 import com.example.fourgrowing.user.data.dto.UsersDto;
 
@@ -62,8 +63,8 @@ public class UserController {
 	}
 	
 	@PostMapping("/admin")
-	public RedirectView newUsers(@ModelAttribute UsersDto userDto) {
-		userService.newUsers(userDto);
+	public RedirectView newUsers(@ModelAttribute UserCreateAdminDto userCreateAdminDto) {
+		userService.newUsers(userCreateAdminDto);
 		return new RedirectView("/admin/users");
 	}
 }
