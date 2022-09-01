@@ -1,20 +1,54 @@
-<html layout:decorate="layout" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html layout:decorate="login_layout" xmlns:layout="http://www.w3.org/1999/xhtml">
 <div layout:fragment="content" class="container my-3">
-  <form th:action="@{/user/login}" method="post">
-    <div th:if="${param.error}">
-      <div class="alert alert-danger">
-        사용자ID 또는 비밀번호를 확인해 주세요.
-      </div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Login #10</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+                    <h3 class="mb-4 text-center">Have an account?</h3>
+                    <form th:action="@{/user/login}" method="post" class="signin-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary submit px-3">로그인</button>
+                        </div>
+                        <div class="form-group d-md-flex">
+                            <div class="w-50">
+                                <label class="checkbox-wrap checkbox-primary">Remember Me
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="w-50 text-md-right">
+                                <a href="#" style="color: #fff">Forgot Password</a>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+                    <div class="social d-flex text-center">
+                        <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                        <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-      <label for="username" class="form-label">사용자ID</label>
-      <input type="text" name="username" id="username" class="form-control">
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">비밀번호</label>
-      <input type="password" name="password" id="password" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">로그인</button>
-  </form>
+</section>
+
+<script src="../static/login/js/jquery.min.js"></script>
+<script src="../static/login/js/popper.js"></script>
+<script src="../static/login/js/bootstrap.min.js"></script>
+<script src="../static/login/js/main.js"></script>
 </div>
 </html>
+
