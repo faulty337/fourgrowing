@@ -1,0 +1,23 @@
+<script th:inline="javascript">
+    $(function(){
+        // Ajax call for category
+        $.ajax({
+            method : 'GET',
+            url: '/user/admin',
+        }).done(function(result){
+            // alert(JSON.stringify(result));
+            // Category tables
+            $('#user_table').DataTable({
+                data : result,
+                columns: [
+                    { data: 'id' },
+                    { data: 'username' },
+                    { data: 'email' },
+                ]
+            });
+        }).fail(function(xhr, ajaxOptions, thrownError){
+            alert(xhr);
+        });
+    });
+    </script>
+    

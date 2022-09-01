@@ -1,0 +1,49 @@
+
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>  -->
+<script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+<th:block th:include="admin/product-js"></th:block>
+<h3>식물 관리 <small>카테고리를 관리합니다.</small></h3>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">입력</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" th:action="@{/product}" method="post">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="plantType">식물종류</label>
+                <select class="form-control" id="plantType" name="plantType" required>
+                    <option value="애기모람">애기모람</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="plantcode">식물코드</label>
+                <input type="text" class="form-control" id="plantCode" name="plantCode" required>
+            </div>
+            <input type="submit" class="btn btn-primary" value="저장"/>
+        </div>
+        <!-- /.box-body -->
+    </form>
+</div>
+ 
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">목록</h3>
+    </div>
+    <div class="content">
+        <table id="product_table" class="table table-bordered" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserName</th>
+                    <th>PlantType</th>
+                    <th>PlantCode</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
