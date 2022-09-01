@@ -1,4 +1,4 @@
-package com.example.fourgrowing.admin;
+package com.example.fourgrowing.data.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

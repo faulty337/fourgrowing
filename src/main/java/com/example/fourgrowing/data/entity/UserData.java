@@ -1,4 +1,4 @@
-package com.example.fourgrowing.user.data.entity;
+package com.example.fourgrowing.data.entity;
 
 
 import lombok.Getter;

@@ -1,10 +1,12 @@
-package com.example.fourgrowing.user;
+package com.example.fourgrowing.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.fourgrowing.user.data.entity.UserData;
+import com.example.fourgrowing.repository.UserRepository;
+import com.example.fourgrowing.data.UserRole;
+import com.example.fourgrowing.data.entity.UserData;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

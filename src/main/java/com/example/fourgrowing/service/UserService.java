@@ -1,14 +1,14 @@
-package com.example.fourgrowing.user;
+package com.example.fourgrowing.service;
 
 
-import com.example.fourgrowing.user.data.dto.UserCreateAdminDto;
-import com.example.fourgrowing.user.data.dto.UserCreateDto;
-import com.example.fourgrowing.user.data.dto.UsersDto;
-import com.example.fourgrowing.user.data.entity.UserData;
+import com.example.fourgrowing.repository.UserRepository;
+import com.example.fourgrowing.data.dto.UserCreateAdminDto;
+import com.example.fourgrowing.data.dto.UserCreateDto;
+import com.example.fourgrowing.data.dto.UsersDto;
+import com.example.fourgrowing.data.entity.UserData;
 import lombok.RequiredArgsConstructor;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

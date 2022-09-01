@@ -1,8 +1,12 @@
-package com.example.fourgrowing.admin;
+package com.example.fourgrowing.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.fourgrowing.data.entity.Product;
+import com.example.fourgrowing.data.dto.ProductCreateDto;
+import com.example.fourgrowing.data.dto.ProductResponseDto;
+import com.example.fourgrowing.repository.ProductRepository;
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

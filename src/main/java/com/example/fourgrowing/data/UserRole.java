@@ -1,4 +1,4 @@
-package com.example.fourgrowing.user;
+package com.example.fourgrowing.data;
 
 import lombok.Getter;
 

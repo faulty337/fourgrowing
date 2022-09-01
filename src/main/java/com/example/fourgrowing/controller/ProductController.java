@@ -1,7 +1,10 @@
-package com.example.fourgrowing.admin;
+package com.example.fourgrowing.controller;
 
 import java.util.List;
 
+import com.example.fourgrowing.data.dto.ProductCreateDto;
+import com.example.fourgrowing.data.dto.ProductResponseDto;
+import com.example.fourgrowing.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

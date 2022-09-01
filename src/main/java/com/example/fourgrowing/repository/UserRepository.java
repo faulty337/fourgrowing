@@ -1,6 +1,6 @@
-package com.example.fourgrowing.user;
+package com.example.fourgrowing.repository;
 
-import com.example.fourgrowing.user.data.entity.UserData;
+import com.example.fourgrowing.data.entity.UserData;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

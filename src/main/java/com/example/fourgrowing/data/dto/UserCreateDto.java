@@ -1,4 +1,4 @@
-package com.example.fourgrowing.user.data.dto;
+package com.example.fourgrowing.data.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

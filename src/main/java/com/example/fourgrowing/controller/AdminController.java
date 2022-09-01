@@ -1,4 +1,4 @@
-package com.example.fourgrowing.admin;
+package com.example.fourgrowing.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

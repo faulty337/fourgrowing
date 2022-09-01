@@ -1,4 +1,4 @@
-package com.example.fourgrowing.admin;
+package com.example.fourgrowing.data.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-package com.example.fourgrowing;
+package com.example.fourgrowing.config;
 
-import com.example.fourgrowing.user.UserSecurityService;
+import com.example.fourgrowing.service.UserSecurityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

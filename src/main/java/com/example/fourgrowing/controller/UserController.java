@@ -1,8 +1,9 @@
-package com.example.fourgrowing.user;
+package com.example.fourgrowing.controller;
 
-import com.example.fourgrowing.user.data.dto.UserCreateAdminDto;
-import com.example.fourgrowing.user.data.dto.UserCreateDto;
-import com.example.fourgrowing.user.data.dto.UsersDto;
+import com.example.fourgrowing.service.UserService;
+import com.example.fourgrowing.data.dto.UserCreateAdminDto;
+import com.example.fourgrowing.data.dto.UserCreateDto;
+import com.example.fourgrowing.data.dto.UsersDto;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
