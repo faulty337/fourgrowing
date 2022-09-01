@@ -1,14 +1,21 @@
 package com.example.fourgrowing.user;
 
+import com.example.fourgrowing.user.data.dto.UserCreateAdminDto;
 import com.example.fourgrowing.user.data.dto.UserCreateDto;
+import com.example.fourgrowing.user.data.dto.UsersDto;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -53,4 +60,15 @@ public class UserController {
 
         return "signup_form";
     }
+
+    @GetMapping("/admin")
+	public @ResponseBody List<UsersDto> getUsers() {
+		return userService.getUsers();
+	}
+	
+	@PostMapping("/admin")
+	public RedirectView newUsers(@ModelAttribute UserCreateAdminDto userCreateAdminDto) {
+		userService.newUsers(userCreateAdminDto);
+		return new RedirectView("/admin/users");
+	}
 }
