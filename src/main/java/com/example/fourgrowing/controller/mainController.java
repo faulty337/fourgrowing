@@ -8,6 +8,21 @@ public class mainController {
 
     @RequestMapping("/")
     public String root(){
-        return "index";
+        return "front/index";
+    }
+
+    @RequestMapping("/recipe")
+    public String recipe(){
+        return "front/menu";
+    }
+
+    @RequestMapping("/calender")
+    public String calender(){
+        return "front/services";
+    }
+
+    @RequestMapping("/board")
+    public String board(){
+        return "front/blog";
     }
 }
