@@ -8,16 +8,14 @@ import com.example.fourgrowing.data.dto.UsersDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
@@ -37,6 +35,10 @@ public class UserController {
     @GetMapping("/addplant")
     public String addplant(UserCreateDto userCreateDto) {
         return "account/addplant";
+    }
+    @GetMapping("/profile")
+    public String profile() {
+        return "account/profile";
     }
 
     @PostMapping("/signup")
