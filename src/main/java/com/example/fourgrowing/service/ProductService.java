@@ -24,8 +24,8 @@ public class ProductService {
 	
 	public Product newProduct(ProductCreateDto productCreateDto) {
         Product product = new Product();
-        product.setPlantCode(productCreateDto.getPlantCode());
-        product.setPlantType(productCreateDto.getPlantType());
+        product.setPlantCode(productCreateDto.getPlantcode());
+        product.setPlantType(productCreateDto.getPlanttype());
         
         productRepository.save(product);
 		return product;

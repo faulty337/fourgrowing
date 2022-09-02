@@ -1,5 +1,7 @@
 package com.example.fourgrowing.data.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,9 +19,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userName;
+    private String username;
+
+    private String plantname;
 
     private String plantType;
+
+    private LocalDate plantingDay;
 
     @Column(unique = true)
     private String plantCode;

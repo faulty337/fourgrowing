@@ -16,10 +16,10 @@ public class mainController {
         return "front/menu";
     }
 
-    @RequestMapping("/calender")
-    public String calender(){
-        return "front/services";
-    }
+    // @RequestMapping("/calender")
+    // public String calender(){
+    //     return "front/services";
+    // }
 
     @RequestMapping("/board")
     public String board(){

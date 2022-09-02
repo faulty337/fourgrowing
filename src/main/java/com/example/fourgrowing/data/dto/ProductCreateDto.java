@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 public class ProductCreateDto {
     @NotEmpty
-    private String plantType;
+    private String planttype;
     @NotEmpty
-    private String plantCode;
+    private String plantcode;
 }
 
