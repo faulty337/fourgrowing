@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+
 	private ModelMapper modelMapper = new ModelMapper();
 
     public UserData create(UserCreateDto userCreateDto) {
@@ -49,7 +51,6 @@ public class UserService {
 		// 사용자 저장
 		// 암호화
 		userCreateAdminDto.setPassword(new BCryptPasswordEncoder().encode(userCreateAdminDto.getPassword()));
-
 		UserData user = new UserData();
         user.setUsername(userCreateAdminDto.getUsername());
         user.setPassword(passwordEncoder.encode((userCreateAdminDto.getPassword())));
