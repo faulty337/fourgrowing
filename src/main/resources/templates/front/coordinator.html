@@ -50,7 +50,7 @@
 			<!-- 메뉴 -->
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">홈</a></li>
+	          <li class="nav-item"><a href="/" class="nav-link">홈</a></li>
 	          <li class="nav-item"><a href="menu.html" class="nav-link">제작법</a></li>
 	          <li class="nav-item active"><a href="services.html" class="nav-link">일정표</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">자랑게시판</a></li>
@@ -95,6 +95,9 @@
             <h2 class="mb-4">코디네이터 서비스</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
             <p class="mt-5">오늘의 온도 : 33°C</p></p>
+            <select class = "plantname" name="plantname" id="plantname">
+              <option th:each="product : ${productList}" th:value="${product.plantname}" th:utext="${product.plantname}"></option>
+            </select>
           </div>
         </div>
       <!-- 달력 -->

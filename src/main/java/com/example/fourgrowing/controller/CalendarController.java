@@ -8,12 +8,18 @@ import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.fourgrowing.data.dto.ProductResponseDto;
+import com.example.fourgrowing.data.entity.Product;
+import com.example.fourgrowing.repository.ProductRepository;
 import com.example.fourgrowing.service.CalendarService;
 
 @Controller
@@ -23,29 +29,24 @@ public class CalendarController {
     @Autowired
     CalendarService calendarService;
 
+    private static Logger logger = LoggerFactory.getLogger(CalendarController.class);
 
-    @GetMapping
-    public String CalendarView(){
-        return "/front/coordinator";
-    }
+	@RequestMapping
+	public String CalendarView(Model model, Principal principal){
+		List<ProductResponseDto> productList = new ArrayList<ProductResponseDto>();
+		productList = calendarService.getProductList(principal.getName());
+		model.addAttribute("productList", productList);
+		return "/front/coordinator";
+	}
+    // @GetMapping
+    // public String CalendarView(){
+    //     return "/front/coordinator";
+    // }
 
     @GetMapping("/event")
-    public @ResponseBody List<Map<String, Object>> getEvent(Principal principal, String plantName){
-        List<Map<String, Object>> list = calendarService.getEventList(principal.getName(), plantName);
-		// List<Map<String, Object>> eventList = new ArrayList<Map<String, Object>>();
-		// Map<String, Object> event = new HashMap<String, Object>();
-		// event.put("start", "2022-09-03");
-		// event.put("title", "test1");
-		// event.put("end", "2022-09-03");
-		// eventList.add(event);
-		// event = new HashMap<String, Object>();
-		// event.put("start", "2022-09-04");
-		// event.put("title", "test2");
-		// event.put("end", "2022-09-04");
-		// eventList.add(event);
-		return list;
-
-
+    public @ResponseBody List<Map<String, Object>> getEvent(Principal principal, String plantname){
+      logger.debug("plantname : " + plantname);
+		  return calendarService.getEventList(principal.getName(), plantname);
     }
 
 }

@@ -8,6 +8,7 @@ import lombok.Setter;
 public class ProductResponseDto {
     private Long id;
     private String username;
-    private String planttype;
-    private String plantcode;
+    private String plantType;
+    private String plantname;
+    private String plantCode;
 }
