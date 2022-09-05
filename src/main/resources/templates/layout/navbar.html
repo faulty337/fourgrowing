@@ -40,16 +40,15 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">내정보</a>
                     <div class="dropdown-menu m-0">
                         <a href="user/signup" class="dropdown-item">회원가입</a>
-                        <a class="dropdown-item" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
                         <a class="dropdown-item" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
-                        <a href="about.html" class="dropdown-item">개인정보</a>
-                        <a href="blog-single.html" class="dropdown-item">식물정보</a>
-                        <a href="contact.html" class="dropdown-item">내가쓴글</a>
+                        <a href="user/profile" sec:authorize="isAuthenticated()" class="dropdown-item">개인정보</a>
+                        <a href="/" sec:authorize="isAuthenticated()" class="dropdown-item">내가쓴글</a>
                     </div>
                 </div>
                 <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
             </ul>
         </div>
-        <a href="user/addplant" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">등록하기</a>
+        <a th:href="@{/user/login}" sec:authorize="isAnonymous()" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">로그인</a>
+        <a href="user/addplant" sec:authorize="isAuthenticated()" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">등록하기</a>
     </div>
 </nav>
