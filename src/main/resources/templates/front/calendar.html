@@ -8,12 +8,74 @@
 			data:{ plantname : plantname.value},
 		});
 		request.done(function( data ) {
-			var calendar = new FullCalendar.Calendar(calendarEl, {
-				initialView: 'dayGridMonth',
-				events: data
-			});
-	
-			calendar.render();								
+			if(data == null){
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					plugins: [ 'interaction', 'dayGrid' ],
+					defaultDate: '2022-09-16',
+					editable: true,
+					eventLimit: true, // allow "more" link when too many events
+					events: [
+						{
+						title: '물주기',
+						start: '2022-09-01'
+						},
+						{
+						title: '뚜껑 닫기',
+						start: '2022-09-03',
+						end: '2022-09-05'
+						},
+						{
+						title: '뚜껑 열기',
+						start: '2022-09-05'
+						},
+						{
+						title: '물주기',
+						start: '2022-09-08'
+						},
+						{
+						title: '뚜껑 열기',
+						start: '2022-09-12'
+						},
+						{
+						title: '물주기',
+						start: '2022-09-15'
+						},
+						{
+						title: '뚜껑닫기',
+						start: '2022-09-17',
+						end: '2022-09-19'
+						},
+						{
+						title: '물버리기',
+						start: '2022-09-19T10:30:00'
+						},
+						{
+						title: '분무기뿌리기',
+						start: '2022-09-19T14:00:00'
+						},
+						{
+						title: '뚜껑열기',
+						start: '2022-09-19T17:00:00'
+						},
+						{
+						title: '물주기',
+						start: '2022-09-22'
+						},
+						{
+						title: '물주기',
+						start: '2022-09-29'
+						},
+					]
+				});
+			}else{
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					initialView: 'dayGridMonth',
+					events: data
+				});
+		
+				calendar.render();		
+			}
+									
 		});
 			
 		request.fail(function( jqXHR, textStatus ) {
@@ -22,7 +84,6 @@
 
 		plantname.addEventListener('change', function() {
 			const result = document.querySelector('.plantname');
-			alert("??");
 			var request = $.ajax({
 				url: "/calendar/event",
 				method: "GET",

@@ -33,6 +33,11 @@ public class CalendarController {
 
 	@RequestMapping
 	public String CalendarView(Model model, Principal principal){
+    try{
+      principal.getName();
+    }catch(NullPointerException e){
+      return "/front/coordinator";
+    }
 		List<ProductResponseDto> productList = new ArrayList<ProductResponseDto>();
 		productList = calendarService.getProductList(principal.getName());
 		model.addAttribute("productList", productList);
@@ -45,7 +50,11 @@ public class CalendarController {
 
     @GetMapping("/event")
     public @ResponseBody List<Map<String, Object>> getEvent(Principal principal, String plantname){
-      logger.debug("plantname : " + plantname);
+      try{
+        principal.getName();
+      }catch(NullPointerException e){
+        return null;
+      }
 		  return calendarService.getEventList(principal.getName(), plantname);
     }
 
