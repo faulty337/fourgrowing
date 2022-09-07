@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.example.fourgrowing.data.entity.Product;
 import com.example.fourgrowing.data.dto.ProductCreateDto;
 import com.example.fourgrowing.data.dto.ProductResponseDto;
+import com.example.fourgrowing.data.dto.RegistrationResponsDto;
 import com.example.fourgrowing.repository.ProductRepository;
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,16 @@ public class ProductService {
         productRepository.save(product);
 		return product;
 	}
+
+	// public RegistrationResponsDto registrationUser(String username, String ProductCode){
+	// 	RegistrationResponsDto registrationResponsDto = new RegistrationResponsDto();
+	// 	try{
+	// 		productRepository.findByPlantCode()
+	// 	}
+		
+
+	// 	return registrationResponsDto;
+	// }
 	
 	// public String getProductLabelNm(String id) {
 	// 	return productRepository.findById(id).getLabelNm();

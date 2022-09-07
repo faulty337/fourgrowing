@@ -1,5 +1,6 @@
 package com.example.fourgrowing.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.example.fourgrowing.data.dto.ProductCreateDto;
@@ -30,5 +31,17 @@ public class ProductController {
 	public RedirectView newProduct(@ModelAttribute ProductCreateDto productCreateDto) {
 		productService.newProduct(productCreateDto);
 		return new RedirectView("/admin/product");
+	}
+
+	@GetMapping("/registerForm")
+    public String registerForm(Principal principal) {
+
+        return "account/addplant";
+    }
+
+	@GetMapping("/registerProduct")
+	public String registerProduct(Principal principal, String plantCode){
+		
+		return null;
 	}
 }

@@ -32,10 +32,7 @@ public class UserController {
     public String login() {
         return "account/login";
     }
-    @GetMapping("/addplant")
-    public String addplant(UserCreateDto userCreateDto) {
-        return "account/addplant";
-    }
+
     @GetMapping("/profile")
     public String profile() {
         return "account/profile";

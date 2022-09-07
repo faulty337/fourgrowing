@@ -1,6 +1,6 @@
 <script>
     $(function(){
-		const plantname = document.querySelector('.plantname')
+		const plantname = document.querySelector('#plantname')
 		var calendarEl = document.getElementById('calendar');
 		var request = $.ajax({
 			url: "/calendar/event",
@@ -83,13 +83,14 @@
 		});
 
 		plantname.addEventListener('change', function() {
-			const result = document.querySelector('.plantname');
+			const result = document.querySelector('#plantname');
 			var request = $.ajax({
 				url: "/calendar/event",
 				method: "GET",
 				data:{ plantname : result.value},
 			});
 			request.done(function(data){
+				console.log(JSON.stringify(data));
 				var calendar = new FullCalendar.Calendar(calendarEl, {
 					initialView: 'dayGridMonth',
 					events: data
