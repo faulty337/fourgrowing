@@ -21,8 +21,8 @@ public class MainController {
     //     return "front/services";
     // }
 
-    @RequestMapping("/board")
-    public String board(){
-        return "front/blog";
-    }
+//    @RequestMapping("/board")
+//    public String board(){
+//        return "front/blog";
+//    }
 }
