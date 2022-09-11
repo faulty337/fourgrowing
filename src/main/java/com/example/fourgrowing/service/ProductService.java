@@ -6,11 +6,13 @@ import java.util.stream.Collectors;
 import com.example.fourgrowing.data.entity.Product;
 import com.example.fourgrowing.data.dto.ProductCreateDto;
 import com.example.fourgrowing.data.dto.ProductResponseDto;
-import com.example.fourgrowing.data.dto.RegistrationResponsDto;
 import com.example.fourgrowing.repository.ProductRepository;
+import com.google.common.base.CharMatcher;
+
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Base64Utils;
 
 @Service
 public class ProductService {
@@ -24,11 +26,36 @@ public class ProductService {
 	}
 	
 	public Product newProduct(ProductCreateDto productCreateDto) {
-        Product product = new Product();
-        product.setPlantCode(productCreateDto.getPlantcode());
-        product.setPlantType(productCreateDto.getPlanttype());
-        
+        Product product = Product.builder().plantCode(productCreateDto.getPlantcode()).plantType(productCreateDto.getPlanttype()).build();
         productRepository.save(product);
+		Product insertProduct = productRepository.findByPlantCode(productCreateDto.getPlantcode());
+		product = Product.builder().id(insertProduct.getId()).plantType(insertProduct.getPlantType()).plantCode(plantCodeIncoding(insertProduct.getId())).build();
+		productRepository.save(product);
+		
+
+		return product;
+	}
+
+	private String plantCodeIncoding(Long id){
+		String str = "product";
+		int idSize = 0;
+		for(long i = id; i > 10; i /= 10){
+			idSize++;
+		}
+		String result = new String(Base64Utils.encode((str.substring(0, str.length() - idSize) + id).getBytes()));
+
+
+		return result;
+	}
+
+	public Product setUsername(String name, String plantCode) {
+		
+		String strBase64Encode = new String(Base64Utils.decode(plantCode.getBytes()));
+		String charsToRetain = "0123456789"; 
+		Long productId = Long.parseLong(CharMatcher.anyOf(charsToRetain).retainFrom(strBase64Encode));
+		Product product = productRepository.findById(productId).get();
+		product.setUsername(name);
+		product = productRepository.save(product);
 		return product;
 	}
 

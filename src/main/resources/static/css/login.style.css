@@ -8328,9 +8328,9 @@
   
   /* Style the checkmark/indicator */
   .checkbox-primary {
-    color: #fbceb5; }
+    color: #fac564; }
     .checkbox-primary input:checked ~ .checkmark:after {
-      color: #fbceb5; }
+      color: #fac564; }
   
   .btn {
     cursor: pointer;
@@ -8342,19 +8342,19 @@
     .btn:hover, .btn:active, .btn:focus {
       outline: none; }
     .btn.btn-primary {
-      background: #fbceb5 !important;
-      border: 1px solid #fbceb5 !important;
+      background: #fac564 !important;
+      border: 1px solid #fac564 !important;
       color: #000 !important; }
       .btn.btn-primary:hover {
-        border: 1px solid #fbceb5;
+        border: 1px solid #fac564;
         background: transparent;
-        color: #fbceb5; }
+        color: #fac564; }
       .btn.btn-primary.btn-outline-primary {
-        border: 1px solid #fbceb5;
+        border: 1px solid #fac564;
         background: transparent;
-        color: #fbceb5; }
+        color: #fac564; }
         .btn.btn-primary.btn-outline-primary:hover {
           border: 1px solid transparent;
-          background: #fbceb5;
+          background: #fac564;
           color: #fff; }
   

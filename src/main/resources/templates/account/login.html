@@ -1,59 +1,63 @@
 <html layout:decorate="layout/layout_login" xmlns:layout="http://www.w3.org/1999/xhtml">
-<div layout:fragment="content" class="container my-3">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Login</h2>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-						<h3 class="mb-4 text-center">Have an account?</h3>
-						<form th:action="@{/user/login}" method="post" class="signin-form">
-							<div th:if="${param.error}">
-								<div class="alert alert-danger">
-									사용자ID 또는 비밀번호를 확인해 주세요.
+	<div layout:fragment="content">
+		<nav th:replace="layout/navbar :: navbarFragment"></nav>
+		<div  class="container my-3">
+			<section class="ftco-section">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-6 text-center mb-5">
+							<h2 class="heading-section">Login</h2>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-md-6 col-lg-4">
+							<div class="login-wrap p-0">
+								<h3 class="mb-4 text-center">Have an account?</h3>
+								<form th:action="@{/user/login}" method="post" class="signin-form">
+									<div th:if="${param.error}">
+										<div class="alert alert-danger">
+											사용자ID 또는 비밀번호를 확인해 주세요.
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+									</div>
+									<div class="form-group">
+										<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+										<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="form-control btn btn-primary submit px-3">로그인</button>
+									</div>
+									<div class="form-group d-md-flex">
+										<div class="w-50">
+											<label class="checkbox-wrap checkbox-primary">Remember Me
+												<input type="checkbox" checked>
+												<span class="checkmark"></span>
+											</label>
+										</div>
+										<div class="w-50 text-md-right">
+											<a href="#" style="color: #fff">Forgot Password</a>
+										</div>
+									</div>
+								</form>
+								<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+								<div class="social d-flex text-center">
+									<a href="#" class="px-21 py-2 mr-md-1 rounded">카카오톡</a>
+									<a href="#" class="px-22 py-2 ml-md-1 rounded">네이버</a>
 								</div>
 							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-							</div>
-							<div class="form-group">
-								<input id="password" type="password" class="form-control" name="password" placeholder="Password">
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="form-control btn btn-primary submit px-3">로그인</button>
-							</div>
-							<div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Remember Me
-										<input type="checkbox" checked>
-										<span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="#" style="color: #fff">Forgot Password</a>
-								</div>
-							</div>
-						</form>
-						<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
-						<div class="social d-flex text-center">
-							<a href="#" class="px-21 py-2 mr-md-1 rounded">카카오톡</a>
-							<a href="#" class="px-22 py-2 ml-md-1 rounded">네이버</a>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</section>
 
-	<script src="../static/login/js/jquery.min.js"></script>
-	<script src="../static/login/js/popper.js"></script>
-	<script src="../static/login/js/bootstrap.min.js"></script>
-	<script src="../static/login/js/main.js"></script>
-</div>
+			<script src="../static/login/js/jquery.min.js"></script>
+			<script src="../static/login/js/popper.js"></script>
+			<script src="../static/login/js/bootstrap.min.js"></script>
+			<script src="../static/login/js/main.js"></script>
+		</div>
+		
+	</div>
 </html>
 

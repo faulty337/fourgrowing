@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RegistrationResponsDto {
+public class RegisterResponsDto {
     private boolean result;
 
     private String errorCode;

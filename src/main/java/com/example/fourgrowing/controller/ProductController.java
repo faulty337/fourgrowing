@@ -35,13 +35,13 @@ public class ProductController {
 
 	@GetMapping("/registerForm")
     public String registerForm(Principal principal) {
-
-        return "account/addplant";
+		
+        return "account/registerProduct";
     }
 
 	@GetMapping("/registerProduct")
 	public String registerProduct(Principal principal, String plantCode){
-		
+		productService.setUsername(principal.getName(), plantCode);
 		return null;
 	}
 }
