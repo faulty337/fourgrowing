@@ -1,5 +1,6 @@
 package com.example.fourgrowing.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,12 @@ public class ProductService {
         Product product = Product.builder().plantCode(productCreateDto.getPlantcode()).plantType(productCreateDto.getPlanttype()).build();
         productRepository.save(product);
 		Product insertProduct = productRepository.findByPlantCode(productCreateDto.getPlantcode());
-		product = Product.builder().id(insertProduct.getId()).plantType(insertProduct.getPlantType()).plantCode(plantCodeIncoding(insertProduct.getId())).build();
+		product = Product.builder()
+			.id(insertProduct.getId())
+			.plantType(insertProduct.getPlantType())
+			.plantCode(plantCodeIncoding(insertProduct.getId()).replace("=", ""))
+			.plantingDay(LocalDate.now())
+			.build();
 		productRepository.save(product);
 		
 
@@ -48,13 +54,14 @@ public class ProductService {
 		return result;
 	}
 
-	public Product setUsername(String name, String plantCode) {
+	public Product setUsername(String name, String plantCode, String plantname) {
 		
-		String strBase64Encode = new String(Base64Utils.decode(plantCode.getBytes()));
+		String strBase64Encode = new String(Base64Utils.decode((plantCode + "=").getBytes()));
 		String charsToRetain = "0123456789"; 
 		Long productId = Long.parseLong(CharMatcher.anyOf(charsToRetain).retainFrom(strBase64Encode));
 		Product product = productRepository.findById(productId).get();
 		product.setUsername(name);
+		product.setPlantname(plantname);
 		product = productRepository.save(product);
 		return product;
 	}

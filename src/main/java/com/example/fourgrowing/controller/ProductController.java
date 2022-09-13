@@ -36,12 +36,12 @@ public class ProductController {
 	@GetMapping("/registerForm")
     public String registerForm(Principal principal) {
 		
-        return "account/registerProduct";
+        return "front/registerProduct";
     }
 
-	@GetMapping("/registerProduct")
-	public String registerProduct(Principal principal, String plantCode){
-		productService.setUsername(principal.getName(), plantCode);
-		return null;
+	@PostMapping("/registerProduct")
+	public String registerProduct(Principal principal, String plantCode, String plantname){
+		productService.setUsername(principal.getName(), plantCode, plantname);
+		return "front/registerProduct";
 	}
 }
