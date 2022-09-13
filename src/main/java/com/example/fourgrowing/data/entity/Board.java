@@ -17,6 +17,7 @@ public class Board {
     @Column(unique = true)
     private String username;
 
+
     @Column(length = 200)
     private String title;
 

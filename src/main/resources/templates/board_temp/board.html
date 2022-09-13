@@ -13,9 +13,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="board : ${boardList}">
-        <td>[[${board.title}]]</td>
-        <td>[[${board.createDate}]]</td>
+    <tr th:each="board, index : ${boardList}">
+        <td>
+            <a th:href="@{|/board/detail/${board.id}|}" th:text="${board.title}"></a>
+        </td>
+        <td th:text="${board.createDate}"> </td>
     </tr>
     </tbody>
 </table>
