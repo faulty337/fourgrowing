@@ -1,6 +1,7 @@
 package com.example.fourgrowing.data.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,10 +36,11 @@ public class Product {
 
 
     @Builder
-    public Product(Long id, String plantCode, String plantType){
+    public Product(Long id, String plantCode, String plantType, LocalDate plantingDay){
         this.id = id;
         this.plantCode = plantCode;
         this.plantType = plantType;
+        this.plantingDay = plantingDay;
         
     }
 }
