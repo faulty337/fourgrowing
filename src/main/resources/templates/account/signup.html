@@ -8,7 +8,7 @@
 					<img src="/images/te4.jpeg" alt="">
 				</div>
 				<form th:action="@{/user/signup}" th:object="${userCreateDto}" method="post">
-					<div th:replace="front/form_errors :: formErrorsFragment"></div>
+					<div th:replace="layout/form_errors :: formErrorsFragment"></div>
 					<h3 class="h3-register">Registration Form</h3>
 					<div class="form-wrapper">
 						<input type="text" th:field="*{username}" placeholder="사용자ID" class="form-register" required>

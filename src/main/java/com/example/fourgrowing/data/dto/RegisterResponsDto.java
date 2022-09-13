@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RegisterResponsDto {
-    private boolean result;
-
+    private String result;
+    
     private String errorCode;
 }
