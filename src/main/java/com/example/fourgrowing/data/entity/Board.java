@@ -1,5 +1,4 @@
 package com.example.fourgrowing.data.entity;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,12 +9,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-public class reply {
+public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
-    private String boardId;
+    @Column(unique = true)
+    private String username;
+
+    @Column(length = 200)
+    private String title;
 
     @Column(columnDefinition = "TEXT")
     private String content;

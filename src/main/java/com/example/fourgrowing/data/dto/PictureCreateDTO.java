@@ -1,3 +1,4 @@
+/*
 package com.example.fourgrowing.data.dto;
 
 import lombok.Getter;
@@ -7,3 +8,4 @@ import lombok.Setter;
 @Setter
 public class PictureCreateDTO {
 }
+*/
