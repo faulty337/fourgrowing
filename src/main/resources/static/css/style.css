@@ -9005,3 +9005,7 @@ textarea.form-control {
     background-color: #fff;
     -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2); }
+
+.got {
+font-size:18px;
+}
