@@ -1,0 +1,23 @@
+<script th:inline="javascript">
+    $(function(){
+        // Ajax call for category
+        $.ajax({
+            method : 'GET',
+            url: '/plant/getPlantList',
+            dataType: 'json'
+        }).done(function(result){
+            // Category tables
+            // alert(JSON.stringify(result));
+            $('#plant_table').DataTable({
+                data : result,
+                columns: [
+                    { data: 'id'},
+                    { data: 'plantType' },
+                    { data: 'changeWater' },
+                    { data: 'givingWater' }
+                ]
+            });
+        }).fail(function(xhr, ajaxOptions, thrownError){
+        });
+    });
+</script>
