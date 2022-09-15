@@ -34,7 +34,6 @@ public class Product {
     @Column(unique = true)
     private String plantCode;
 
-
     @Builder
     public Product(Long id, String plantCode, String plantType, LocalDate plantingDay){
         this.id = id;

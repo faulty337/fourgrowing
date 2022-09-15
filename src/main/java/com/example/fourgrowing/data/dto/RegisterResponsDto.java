@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 public class RegisterResponsDto {
     private String result;
-    
     private String errorCode;
 }

@@ -22,7 +22,7 @@ public class BoardController {
     public String boardView(Model model){
         List<Board> boardList = this.boardService.getList();
         model.addAttribute("boardList", boardList);
-        return "board_temp/board";
+        return "front/blog";
     }
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable("id") Long id) {

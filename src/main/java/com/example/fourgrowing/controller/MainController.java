@@ -16,13 +16,4 @@ public class MainController {
         return "front/menu";
     }
 
-    // @RequestMapping("/calender")
-    // public String calender(){
-    //     return "front/services";
-    // }
-
-//    @RequestMapping("/board")
-//    public String board(){
-//        return "front/blog";
-//    }
 }

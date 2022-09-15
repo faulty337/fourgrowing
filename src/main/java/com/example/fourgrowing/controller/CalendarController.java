@@ -2,14 +2,9 @@ package com.example.fourgrowing.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.fourgrowing.data.dto.ProductResponseDto;
-import com.example.fourgrowing.data.entity.Product;
-import com.example.fourgrowing.repository.ProductRepository;
 import com.example.fourgrowing.service.CalendarService;
 
 @Controller
@@ -29,10 +22,10 @@ public class CalendarController {
     @Autowired
     CalendarService calendarService;
 
-    private static Logger logger = LoggerFactory.getLogger(CalendarController.class);
 
 	@RequestMapping
 	public String CalendarView(Model model, Principal principal){
+    //로그인이 되어 있지 않을 시 Nullpointer 에러가 발생
     try{
       principal.getName();
     }catch(NullPointerException e){
@@ -40,13 +33,9 @@ public class CalendarController {
     }
 		List<ProductResponseDto> productList = new ArrayList<ProductResponseDto>();
 		productList = calendarService.getProductList(principal.getName());
-		model.addAttribute("productList", productList);
+		model.addAttribute("productList", productList); //현재 로그인한 유저의 상품 정보를 같이 전송
 		return "/front/coordinator";
 	}
-    // @GetMapping
-    // public String CalendarView(){
-    //     return "/front/coordinator";
-    // }
 
     @GetMapping("/event")
     public @ResponseBody List<Map<String, Object>> getEvent(Principal principal, String plantname){

@@ -40,7 +40,6 @@ public class ProductService {
 			.build();
 		productRepository.save(product);
 		
-
 		return product;
 	}
 
@@ -62,7 +61,7 @@ public class ProductService {
 		String charsToRetain = "0123456789"; 
 		Long productId = new Long(1);
 		try{
-			strBase64Encode = new String(Base64Utils.decode((plantCode + "=").getBytes()));
+			strBase64Encode = new String(Base64Utils.decode((plantCode + "=").getBytes()));//product1
 		}catch(IllegalArgumentException e){
 			registerResponsDto.setErrorCode("잘못된 코드");
 			registerResponsDto.setResult("false");
@@ -93,7 +92,7 @@ public class ProductService {
 		
 		product.setUsername(name);
 		product.setPlantname(plantname);
-		product = productRepository.save(product);
+		productRepository.save(product);
 		
 		registerResponsDto.setResult("true");
 		return registerResponsDto;

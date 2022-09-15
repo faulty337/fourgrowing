@@ -28,9 +28,10 @@
                 </div>
                 <!-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
             </ul>
-        </div>
-        <a th:href="@{/user/login}" sec:authorize="isAnonymous()" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">로그인</a>
+            <a th:href="@{/user/login}" sec:authorize="isAnonymous()" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">로그인</a>
         
         <a href="product/registerForm" sec:authorize="isAuthenticated()" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">등록하기</a>
+        </div>
+        
     </div>
 </nav>

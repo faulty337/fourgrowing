@@ -64,9 +64,11 @@
             <h2 class="mb-4">코디네이터 서비스</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
             <p class="mt-5">오늘의 온도 : 33°C</p></p>
-            <select class = "form-select" aria-label="Default select example" name="plantname" id="plantname">
-              <option th:each="product : ${productList}" th:value="${product.plantname}" th:utext="${product.plantname}"></option>
-            </select>
+            <div sec:authorize="isAuthenticated()">
+              <select class = "form-select" aria-label="Default select example" name="plantname" id="plantname">
+                <option th:each="product : ${productList}" th:value="${product.plantname}" th:utext="${product.plantname}"></option>
+              </select>
+            </div>
           </div>
         </div>
       <!-- 달력 -->
